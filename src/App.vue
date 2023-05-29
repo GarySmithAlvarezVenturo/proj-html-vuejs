@@ -19,9 +19,18 @@ export default{
 
 <template>
     <div id="web_page" class="container-fluid">
-    <AppHeader/>
-    <AppMain/>
-    <AppFooter/>
+
+      <div id="layout-under">
+        <img src="img/home_slider.jpg" alt="">
+      </div>
+
+      <!-- COMPONENT CONTAINER -->
+      <div>
+        <AppHeader/>
+        <AppMain/>
+        <AppFooter/>
+      </div>
+    
     </div>
 
 </template>
@@ -32,8 +41,21 @@ export default{
 
     #web_page
     {
-      background-color: $web_page_bg_color;
-    }
+      
+      #layout-under{
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 100vh;
 
+        img
+        {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
 </style>
 

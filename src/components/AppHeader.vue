@@ -11,18 +11,18 @@
 </script>
 
 <template>
-    <!-- NAV BAR TOP -->
-    <header class="fixed-top vh-100 container-fluid">
+    <!-- NAV BAR TOP (MENU)-->
+    <header class="std_flex">
 
-        <nav class="fixed-top std_flex px-5">
+        <a href="/" class="std_flex">
+            <img src="img/avada-music-logo-retina.png" alt="Logo header">
+        </a>
 
-            <a href="/" class="std_flex">
-                <img src="img/avada-music-logo-retina.png" alt="Logo header">
-            </a>
+        <nav class="std_flex">
 
-            <!-- BOTTONE DA MODIFICARE -->
+            <!-- RICORDARSI DI RENDERE NAV PRESENTE NEL MENU APERTO O CHIUSO -->
             <button id="nav_menu_btn" type="button" class="fs-2" v-on:click="nav_menu()">
-                <i class="fa-solid fa-bars"></i>
+                <i id="compressed_menu" class="fa-solid fa-bars"></i>
             </button>
 
         </nav>
@@ -37,33 +37,39 @@
     @use "../assets/style/main.scss" as *;
 
     header
-    {
-        background-image: url(img/home_slider.jpg);
-        background-size: cover;
-        nav
         {
-            height: $nav_height_transparent;
-            border: 3px solid rgb(25, 243, 6);
+        position: sticky;  /*Causa la sua staticità durante lo scroll insieme ad index*/
+        top: 0;
+        z-index: 999;
+        width: 100%;
+        height: $header_height_basic;
+        padding: 0 $header_x_padding;
+        border: 3px solid yellow;
+
             a
             {
-                height: 100%;
+            height: 100%;
+
                 img
                 {
-                    height: 70%;
-                    object-fit: contain;
-                    border: 1px solid rgb(245, 9, 205);
-                }
-            } 
-            #nav_menu_btn
-            {
-                background-color: transparent;
-                border: none;
-                i
-                {
-                    color: $nav_menu_btn_color; 
+                height: 80%;
+                object-fit: contain;
+                border: 3px solid white;
                 } 
             }
-        }
-    }
 
+            nav
+            {
+                #nav_menu_btn
+                {
+                border: none;
+                background-color: transparent;
+
+                    #compressed_menu
+                    {
+                    color: $nav_menu_color;
+                    }
+                }
+            } 
+        }
 </style>
