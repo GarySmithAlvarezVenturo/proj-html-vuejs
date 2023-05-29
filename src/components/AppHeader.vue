@@ -1,11 +1,10 @@
 <script>
-    export default
+export default
     {
-        name    : "AppHeader",
-        methods :
+        name: "AppHeader",
+        methods:
         {
-            nav_menu()
-            {}
+            nav_menu() { }
         }
     }
 </script>
@@ -28,48 +27,44 @@
         </nav>
 
     </header>
-
 </template>
 
 <style scoped lang="scss">
+@use "../assets/style/main.scss" as *;
 
-    
-    @use "../assets/style/main.scss" as *;
+header {
+    position: sticky; /*Causa la sua staticità durante lo scroll insieme ad index*/
+    top: 0;
+    z-index: 999;
+    width: 100%;
+    height: $header_height_basic;
+    padding: 0 $header_x_padding;
+    transition: all 0.33s;
 
-    header
-        {
-        position: sticky;  /*Causa la sua staticità durante lo scroll insieme ad index*/
-        top: 0;
-        z-index: 999;
-        width: 100%;
-        height: $header_height_basic;
-        padding: 0 $header_x_padding;
-        border: 3px solid yellow;
+    &.scrolled {
+        height: $header_height_scrolled;
+        background-color: $header_bg_color;
+    }
 
-            a
-            {
-            height: 100%;
+    a {
+        height: 100%;
 
-                img
-                {
-                height: 80%;
-                object-fit: contain;
-                border: 3px solid white;
-                } 
-            }
-
-            nav
-            {
-                #nav_menu_btn
-                {
-                border: none;
-                background-color: transparent;
-
-                    #compressed_menu
-                    {
-                    color: $nav_menu_color;
-                    }
-                }
-            } 
+        img {
+            height: 80%;
+            object-fit: contain;
+           
         }
+    }
+
+    nav {
+        #nav_menu_btn {
+            border: none;
+            background-color: transparent;
+
+            #compressed_menu {
+                color: $nav_menu_color;
+            }
+        }
+    }
+}
 </style>
