@@ -1,0 +1,11 @@
+// Import variables
+@import "./variables.scss";
+
+//Default fuction
+@mixin default_mixin($default_param)
+{
+    @if $default_param == $default_var
+    {
+        display: block;
+    }
+}

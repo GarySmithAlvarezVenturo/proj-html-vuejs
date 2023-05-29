@@ -1,0 +1,16 @@
+// All import partials
+@import "./scss_partials/variables.scss";
+@import "./scss_partials/mixin.scss";
+@import "../../../node_modules/bootstrap/scss/bootstrap.scss";
+
+a
+{
+    text-decoration: none;
+}
+
+.std_flex
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
