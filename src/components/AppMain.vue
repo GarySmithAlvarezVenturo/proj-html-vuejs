@@ -1,17 +1,73 @@
 <script>
 import AppMenu from './AppMenu.vue';
-    export default
+import AppBanner from './AppBanner.vue';
+export default
+  {
+    name: "AppMain",
+    components:
     {
-        name        : "AppMain",
-        components  : AppMenu,
-        data()
+      AppBanner,
+      AppMenu,
+    },
+
+        data() 
         {
-            return {
-                // Menu list:
-                heading_menu :  {}
-            }
-        }
+      return {
+        banner_array: [
+          {
+            bg_color: "#323844",
+            bar_color: "#EC4858",
+            title: "Music Is LIfe",
+            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. A scelerisque purus semper eget duis at tellus at urna. Felis eget velit aliquet sagittis id consectetur purus ut."
+          },
+          {
+            bg_color: "",
+            bar_color: "",
+            title: "Latest Band News",
+            text: "Posuere sollicitudin aliquam ultrices sagittis orci. Morbi tristique senectus et netus et. Interdum posuere lorem ipsum dolor sit amet consectetur adipiscing. Hendrerit gravida rutrum quisque non."
+          },
+          {
+            bg_color: "",
+            bar_color: "",
+            title: "Live Dates",
+            text: "Ac felis donec et odio pellentesque diam volutpat commodo. Et sollicitudin ac orci phasellus egestas tellus. Ac turpis egestas maecenas pharetra convallis posuere morbi. "
+          }
+        ],
+        cards_array: [
+          {
+            image: "img/blog_music_techo-1200x600.jpg",
+            title: "Technology and music",
+            text: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+          },
+          {
+            image: "img\blog-post3-600x900.jpg",
+            title: "While my guitar gently weeps",
+            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          },
+          {
+            image: "img\blog-post4-600x900.jpg",
+            title: "It just sounds better",
+            text: "Aliquet risus feugiat in ante metus dictum at. Laoreet non curabitur gravida arcu ac. Lectus proin nibh nisl condimentum."
+          },
+          {
+            image: "img\blog_flavor_rock-1200x600.jpg",
+            title: "The flavor of rock",
+            text: "Nunc aliquet bibendum enim facilisis. Habitant morbi tristique senectus et netus et malesuada."
+          },
+          {
+            image: "img\blog-post1-600x900.jpg",
+            title: "Taking it back to the old school",
+            text: "Tellus molestie nunc non blandit massa enim nec. Aliquam faucibus purus in massa tempor nec feugiat. Vulputate enim nulla aliquet porttitor lacus. "
+          },
+          {
+            image: "img\blog-post2-600x900.jpg",
+            title: "Sharing the stage with a legend",
+            text: " Mauris sit amet massa vitae tortor condimentum lacinia. Phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec sagittis."
+          }
+        ]
+      }
     }
+  }
 </script>
 
 <template>
@@ -23,14 +79,11 @@ import AppMenu from './AppMenu.vue';
                 <Comp_Menu menu = "heading_menu" />
             </div>
         </section>
-        <section id="gap_section" class="std_flex flex-column">
-            <div id="bar"></div>
-            <div id="gap_box" class="std_flex flex-column justify-content-center">
-                <h2>Music Is Life</h2>
-                <div id="line"></div>
-                <div>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur natus quas amet est minus, dolores ullam quae sunt neque!</p>
-                </div>
+        <AppBanner :banner_data = "banner_array[0]" />
+        <section id="card_set_section">
+            <AppBanner :banner_data = "banner_array[1]" />
+            <div id="card_set">
+
             </div>
         </section>
     </main>
@@ -39,53 +92,24 @@ import AppMenu from './AppMenu.vue';
 <style scoped lang="scss">
 @use "../assets/style/main.scss" as *;
 
-  main
-  {
-      position: relative;
-
+main
+    {
+        position: relative;
         #heading_section
         {
-          height: calc(100vh - $header_height_basic);
-
+            height: calc(100vh - $header_height_basic);
             #heading_title
             {
-              color: white;
+                color: white;
             }
         }
-
-        #gap_section
+        #card_set_section
         {
-          height: $gap_section_height;
-          background-color: $gap_section_bg;
-            
-            #bar
+            background-color: $main_bg_color;
+            #card_set
             {
-              width: $bar_width;
-              height: $bar_height;
-              background-color: $bar_color;
-            }
-
-            #gap_box
-            {
-              height: calc(100% - $bar_height);
-              color: white;
-              gap: calc(2 * $bar_height);
-                
-                #line
-                {
-                  width: $line_width;
-                  border-bottom: 3px solid $line_color;
-                } 
-
-                div
-                {
-                  width: $gap_text_width;
-                  text-align: center;
-                  font-size: 1.5rem;
-                  color: $gap_text_color;
-                }
-            }
- 
+                padding: $card_set_padding;
+            } 
         }
-  }
+    }
 </style>

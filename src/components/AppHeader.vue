@@ -1,31 +1,34 @@
 <script>
+import { store } from "../store";
 export default
     {
         name: "AppHeader",
-        methods:
+        data()
         {
-            nav_menu() { }
+            return {
+                store
+            }
+        },
+        methods :
+        {
+            nav_menu()
+            {}
         }
     }
 </script>
 
 <template>
     <!-- NAV BAR TOP (MENU)-->
-    <header class="std_flex">
-
+    <header class="std_flex" :class="(store.is_scrolled) ? ('scrolled') : ('')">
         <a href="/" class="std_flex">
-            <img src="img/avada-music-logo-retina.png" alt="Logo header">
+            <img src="img/avada-music-logo-retina.png" alt="Logo grande">
         </a>
-
+        <!-- MENU OPEN/CLOSE -->
         <nav class="std_flex">
-
-            <!-- RICORDARSI DI RENDERE NAV PRESENTE NEL MENU APERTO O CHIUSO -->
             <button id="nav_menu_btn" type="button" class="fs-2" v-on:click="nav_menu()">
                 <i id="compressed_menu" class="fa-solid fa-bars"></i>
             </button>
-
         </nav>
-
     </header>
 </template>
 

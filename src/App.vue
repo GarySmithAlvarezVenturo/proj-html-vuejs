@@ -12,20 +12,34 @@ export default{
       AppHeader,
       AppMain,
       AppFooter
+    },
+    data()
+    {
+      return {
+        store
+      }
+    },
+    mounted()
+    {
+      document.addEventListener("scroll", event => { this.store.is_scrolled = (window.scrollY != 0); });
+    },
+    methods:
+    {
+      
     }
 }    
 </script>
 
 
 <template>
-    <div id="web_page" class="container-fluid">
+    <div id="web_page">
 
       <div id="layout-under">
         <img src="img/home_slider.jpg" alt="">
       </div>
 
       <!-- COMPONENT CONTAINER -->
-      <div>
+      <div id="overlay">
         <AppHeader/>
         <AppMain/>
         <AppFooter/>

@@ -3,20 +3,24 @@ $header_height_basic        : 15vh;
 $header_height_scrolled     : 10vh; 
 $header_x_padding           : 3rem;
 
-$gap_section_height         : 50vh;
 $bar_width                  : 33vw;
-$bar_height                 : 2.5vh; 
+$bar_height                 : 2.5vh;
+$line_width                 : 25vw;
+$banner_text_width          : 50vw; 
 
-$line_width                 : 25vw; 
-$gap_text_width             : 50vw;
+$card_set_padding           : 4rem;
+$card_set_gap               : 3vw;
+$card_set_width             : 72vw;
+$card_set_height            : 97vw;
+$card_short_side            : 22vw;
+$card_long_side             : 47vw; 
 
 
 // Chromatic variables!!
 $header_bg_color            : #262833; 
 $nav_menu_color             : white;
 
-$gap_section_bg             : #323844;
-$bar_color                  : #EC4858;
-
 $line_color                 : #444E63;
-$gap_text_color             : #7D7B7B; 
+$banner_text_color          : #7D7B7B; 
+
+$main_bg_color              : #252A33; 
