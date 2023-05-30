@@ -21,7 +21,12 @@ export default{
     },
     mounted()
     {
-      document.addEventListener("scroll", event => { this.store.is_scrolled = (window.scrollY != 0); });
+     
+     document.addEventListener("scroll", event => 
+      { 
+        this.store.is_scrolled = (window.scrollY != 0); 
+      });
+      
     },
     methods:
     {

@@ -1,25 +1,23 @@
 <script>
 import { store } from "../store";
+
 export default
     {
         name: "AppHeader",
-        data()
-        {
+        
+        data() {
             return {
-                store
-            }
+                store,
+            };
         },
-        methods :
-        {
-            nav_menu()
-            {}
-        }
+        
     }
 </script>
 
 <template>
     <!-- NAV BAR TOP (MENU)-->
     <header class="std_flex" :class="(store.is_scrolled) ? ('scrolled') : ('')">
+
         <a href="/" class="std_flex">
             <img src="img/avada-music-logo-retina.png" alt="Logo grande">
         </a>
@@ -29,14 +27,17 @@ export default
                 <i id="compressed_menu" class="fa-solid fa-bars"></i>
             </button>
         </nav>
+
     </header>
+
 </template>
 
 <style scoped lang="scss">
 @use "../assets/style/main.scss" as *;
 
 header {
-    position: sticky; /*Causa la sua staticità durante lo scroll insieme ad index*/
+    position: sticky;
+    /*Causa la sua staticità durante lo scroll insieme ad index*/
     top: 0;
     z-index: 999;
     width: 100%;
@@ -55,7 +56,7 @@ header {
         img {
             height: 80%;
             object-fit: contain;
-           
+
         }
     }
 
@@ -63,9 +64,10 @@ header {
         #nav_menu_btn {
             border: none;
             background-color: transparent;
+            color: $nav_menu_color;
 
-            #compressed_menu {
-                color: $nav_menu_color;
+            &:hover {
+                color: $nav_menu_hover_col;
             }
         }
     }
