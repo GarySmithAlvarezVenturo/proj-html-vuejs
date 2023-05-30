@@ -1,6 +1,7 @@
 <script>
 import AppMenu from './AppMenu.vue';
 import AppBanner from './AppBanner.vue';
+import AppCard from './AppCard.vue'
 export default
   {
     name: "AppMain",
@@ -8,6 +9,7 @@ export default
     {
       AppBanner,
       AppMenu,
+      AppCard
     },
 
         data() 
@@ -66,27 +68,53 @@ export default
           }
         ]
       }
+    },
+    methods:
+    {
+      set_card_classes(index) {
+        switch (index) {
+          case 0:
+            return "first";
+          case 1:
+            return "second";
+          case 2:
+            return "third";
+          case 3:
+            return "fourth";
+          case 4:
+            return "fifth";
+          case 5:
+            return "sixth";
+        }
+      }
     }
   }
 </script>
 
 <template>
   <main>
-        <section id="heading_section" class="std_flex justify-content-center">
-            <div id="heading_title" class="std_flex flex-column">
-                <h1>Untold Stories</h1>
-                <h2>There is an untold story behind every favorite song.</h2>
-                <Comp_Menu menu = "heading_menu" />
-            </div>
-        </section>
-        <AppBanner :banner_data = "banner_array[0]" />
-        <section id="card_set_section">
-            <AppBanner :banner_data = "banner_array[1]" />
-            <div id="card_set">
+          <section id="heading_section" class="std_flex justify-content-center">
+              <div id="heading_title" class="std_flex flex-column">
+                  <h1>Untold Stories</h1>
+                  <h2>There is an untold story behind every favorite song.</h2>
+                  <!-- RICORDARSI CAMBIARE COMPONENTE IN APPMENU INVECE CHE COMP MENU -->
+                  <AppMenu menu = "heading_menu" />
+              </div>
+          </section>
+          <AppBanner :banner_data = "banner_array[0]" />
+          <section id="card_set_section">
+              <AppBanner :banner_data = "banner_array[1]" />
+              <div id="card_set">
 
-            </div>
-        </section>
-    </main>
+                <div class="card" 
+                  v-for="(item, index) in cards_array"
+                  :key="index"
+                  :class="set_card_classes(index)">
+                </div>
+
+              </div>
+          </section>
+      </main>
 </template>
 
 <style scoped lang="scss">
@@ -106,9 +134,61 @@ main
         #card_set_section
         {
             background-color: $main_bg_color;
+            
             #card_set
             {
                 padding: $card_set_padding;
+                width: $card_set_width;
+                height: $card_set_height;
+                display: grid;
+                gap: $card_set_gap;
+                grid-template-areas: 
+                    "first first fifth"
+                    "second third fifth"
+                    "second third sixth"
+                    "fourth fourth sixth";
+                border: 3px solid yellow;
+                margin: 0 auto;
+                .card
+                {
+                    // !!!!
+                }
+                .card:nth-child(1)
+                {
+                    grid-area: first;
+                    border: 3px solid white;
+                }
+                .card:nth-child(2)
+                {
+                    grid-area: second;
+                    border: 3px solid yellow;
+
+                }
+                .card:nth-child(3)
+                {
+                    grid-area: third;
+                    border: 3px solid yellow;
+
+                }
+                .card:nth-child(4)
+                {
+                    grid-area: fourth;
+                    border: 3px solid white;
+
+                }
+                .card:nth-child(5)
+                {
+                    grid-area: fifth;
+                    border: 3px solid blue;
+
+                }
+                .card:nth-child(6)
+                {
+                    grid-area: sixth;
+                    border: 3px solid blue;
+
+                }
+
             } 
         }
     }
