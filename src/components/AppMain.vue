@@ -42,27 +42,27 @@ export default
             text: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
           },
           {
-            image: "img\blog-post3-600x900.jpg",
+            image: "img/blog-post3-600x900.jpg",
             title: "While my guitar gently weeps",
             text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
           },
           {
-            image: "img\blog-post4-600x900.jpg",
+            image: "img/blog-post4-600x900.jpg",
             title: "It just sounds better",
             text: "Aliquet risus feugiat in ante metus dictum at. Laoreet non curabitur gravida arcu ac. Lectus proin nibh nisl condimentum."
           },
           {
-            image: "img\blog_flavor_rock-1200x600.jpg",
+            image: "img/blog_flavor_rock-1200x600.jpg",
             title: "The flavor of rock",
             text: "Nunc aliquet bibendum enim facilisis. Habitant morbi tristique senectus et netus et malesuada."
           },
           {
-            image: "img\blog-post1-600x900.jpg",
+            image: "img/blog-post1-600x900.jpg",
             title: "Taking it back to the old school",
             text: "Tellus molestie nunc non blandit massa enim nec. Aliquam faucibus purus in massa tempor nec feugiat. Vulputate enim nulla aliquet porttitor lacus. "
           },
           {
-            image: "img\blog-post2-600x900.jpg",
+            image: "img/blog-post2-600x900.jpg",
             title: "Sharing the stage with a legend",
             text: " Mauris sit amet massa vitae tortor condimentum lacinia. Phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec sagittis."
           }
@@ -110,6 +110,7 @@ export default
                   v-for="(item, index) in cards_array"
                   :key="index"
                   :class="set_card_classes(index)">
+                  <AppCard :current_card = "item" :index = "index"/>
                 </div>
 
               </div>
@@ -147,7 +148,7 @@ main
                     "second third fifth"
                     "second third sixth"
                     "fourth fourth sixth";
-                border: 3px solid yellow;
+                
                 margin: 0 auto;
                 .card
                 {
@@ -156,36 +157,36 @@ main
                 .card:nth-child(1)
                 {
                     grid-area: first;
-                    border: 3px solid white;
+                    
                 }
                 .card:nth-child(2)
                 {
                     grid-area: second;
-                    border: 3px solid yellow;
+                    
 
                 }
                 .card:nth-child(3)
                 {
                     grid-area: third;
-                    border: 3px solid yellow;
+                   
 
                 }
                 .card:nth-child(4)
                 {
                     grid-area: fourth;
-                    border: 3px solid white;
+                    
 
                 }
                 .card:nth-child(5)
                 {
                     grid-area: fifth;
-                    border: 3px solid blue;
+                    
 
                 }
                 .card:nth-child(6)
                 {
                     grid-area: sixth;
-                    border: 3px solid blue;
+                    
 
                 }
 
