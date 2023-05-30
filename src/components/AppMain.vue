@@ -135,10 +135,11 @@ main
         #card_set_section
         {
             background-color: $main_bg_color;
+            padding: 0 $card_set_padding calc(2 * $card_set_padding);
             
             #card_set
             {
-                padding: $card_set_padding;
+                
                 width: $card_set_width;
                 height: $card_set_height;
                 display: grid;
