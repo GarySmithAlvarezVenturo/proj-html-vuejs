@@ -17,22 +17,40 @@ export default
       return {
         banner_array: [
           {
+            id: 0,
             bg_color: "#323844",
             bar_color: "#EC4858",
+            line_bool: true,
             title: "Music Is LIfe",
-            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. A scelerisque purus semper eget duis at tellus at urna. Felis eget velit aliquet sagittis id consectetur purus ut."
+            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. A scelerisque purus semper eget duis at tellus at urna. Felis eget velit aliquet sagittis id consectetur purus ut.",
+            clickable: false
           },
           {
+            id: 1,
             bg_color: "",
             bar_color: "",
+            line_bool: true,
             title: "Latest Band News",
-            text: "Posuere sollicitudin aliquam ultrices sagittis orci. Morbi tristique senectus et netus et. Interdum posuere lorem ipsum dolor sit amet consectetur adipiscing. Hendrerit gravida rutrum quisque non."
+            text: "Posuere sollicitudin aliquam ultrices sagittis orci. Morbi tristique senectus et netus et. Interdum posuere lorem ipsum dolor sit amet consectetur adipiscing. Hendrerit gravida rutrum quisque non.",
+            clickable: false
           },
           {
+            id: 2,
+            bg_color: "#EC4858",
+            bar_color: "",
+            line_bool: false,
+            title: "VIEW ALL LATEST NEWS",
+            text: "",
+            clickable: true
+          },
+          {
+            id: 3,
             bg_color: "",
             bar_color: "",
+            line_bool: true,
             title: "Live Dates",
-            text: "Ac felis donec et odio pellentesque diam volutpat commodo. Et sollicitudin ac orci phasellus egestas tellus. Ac turpis egestas maecenas pharetra convallis posuere morbi. "
+            text: "Ac felis donec et odio pellentesque diam volutpat commodo. Et sollicitudin ac orci phasellus egestas tellus. Ac turpis egestas maecenas pharetra convallis posuere morbi.",
+            clickable: false
           }
         ],
         cards_array: [
@@ -71,8 +89,12 @@ export default
     },
     methods:
     {
-      set_card_classes(index) {
-        switch (index) {
+      set_card_classes(index) 
+      
+      {
+
+        switch (index) 
+        {
           case 0:
             return "first";
           case 1:
@@ -86,6 +108,14 @@ export default
           case 5:
             return "sixth";
         }
+      },
+
+      manage_click(link_id)
+      {
+
+        console.log("Hai cliccato il link..", link_id);
+        console.log("Il titolo dell'elemento cliccato è: ", this.banner_array[link_id].title);
+
       }
     }
   }
@@ -93,29 +123,27 @@ export default
 
 <template>
   <main>
-          <section id="heading_section" class="std_flex justify-content-center">
-              <div id="heading_title" class="std_flex flex-column">
-                  <h1>Untold Stories</h1>
-                  <h2>There is an untold story behind every favorite song.</h2>
-                  <!-- RICORDARSI CAMBIARE COMPONENTE IN APPMENU INVECE CHE COMP MENU -->
-                  <AppMenu menu = "heading_menu" />
-              </div>
-          </section>
-          <AppBanner :banner_data = "banner_array[0]" />
-          <section id="card_set_section">
-              <AppBanner :banner_data = "banner_array[1]" />
-              <div id="card_set">
+    <section id="heading_section" class="std_flex justify-content-center">
+      <div id="heading_title" class="std_flex flex-column">
+        <h1>Untold Stories</h1>
+        <h2>There is an untold story behind every favorite song.</h2>
+        <!-- RICORDARSI CAMBIARE COMPONENTE IN APPMENU INVECE CHE COMP MENU -->
+        <AppMenu menu="heading_menu" />
+      </div>
+    </section>
+    <AppBanner :banner_data="banner_array[0]" />
+    <section id="card_set_section">
+      <AppBanner :banner_data="banner_array[1]" />
+      <div id="card_set">
 
-                <div class="card" 
-                  v-for="(item, index) in cards_array"
-                  :key="index"
-                  :class="set_card_classes(index)">
-                  <AppCard :current_card = "item" :index = "index"/>
-                </div>
+        <div class="card" v-for="(item, index) in cards_array" :key="index" :class="set_card_classes(index)">
+          <AppCard :current_card= "item" :index= "index" />
+        </div>
 
-              </div>
-          </section>
-      </main>
+      </div>
+    </section>
+    <AppBanner :banner_data="banner_array[2]" @link_clicked="manage_click" />
+  </main>
 </template>
 
 <style scoped lang="scss">
@@ -151,10 +179,7 @@ main
                     "fourth fourth sixth";
                 
                 margin: 0 auto;
-                .card
-                {
-                    // !!!!
-                }
+                
                 .card:nth-child(1)
                 {
                     grid-area: first;
