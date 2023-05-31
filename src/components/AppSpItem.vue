@@ -51,7 +51,7 @@ import AppItem from './AppItem.vue';
                     :csi_menu_class = "40" 
                     />
                 </div>
-                <img :src="cs_menu_item.img_details" alt="Mappa">
+                <!-- <img :src="cs_menu_item.img_details" alt="Mappa"> -->
             </div>
 
         </div>
