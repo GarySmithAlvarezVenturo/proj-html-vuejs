@@ -86,7 +86,15 @@ export default
             />
         </div>
         <div id="footer_lower">
-            <p>&#169; COPYRIGHT 2012 - 2023 | AVADA THEME BY THEMFUSION | ALL RIGHTS RESERVED  | POWERED BY WORDPRESS</p>
+            <p>
+                &#169; COPYRIGHT 2012 - 2023 | AVADA THEME BY THEMEFUSION | ALL RIGHT RESERVED | POWERED BY WORDPRESS
+            </p>
+            <AppMenuMng 
+             :menu_class = "social_menu.menu_class"
+             :category = "social_menu.category"
+             :is_horizontal="social_menu.is_horizontal"
+             :menu_items = "social_menu.menu_items" 
+            />
         </div>
     </footer>
 </template>
