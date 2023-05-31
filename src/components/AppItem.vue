@@ -28,7 +28,11 @@
                     // poster_play
                     case 20:
                         classes_str = "poster_play";
-                        break;                    
+                        break;
+                    // book_now
+                    case 40:
+                        classes_str = "book_now";
+                        break;                        
                     // footer_menu
                     case 50:
                         classes_str = "footer_menu";
@@ -165,12 +169,35 @@
                     }
                 } 
             }
+            &.book_now
+            {
+                button
+                {
+                    color: white;
+                    background-color: transparent;
+                    border: 1px solid white;
+                    border-radius: 0;
+                    font-size: 1rem;
+                    padding: 1rem 1.5rem;
+                    &.active
+                    {
+                        background-color: $img_title_color;
+                        border-color: $img_title_color;
+                        transition: all, 0.25s;
+                    }
+                    &:hover
+                    {
+                        color: black;
+                        background-color: white;
+                    }
+                } 
+            }
             &.poster_play
             {
                 button
                 {
                     color: white;
-                    background-color: $img_title_color;
+                    background-color: transparent;
                     border: none;
                     font-size: 2rem;
                     width: 6rem;
@@ -178,6 +205,14 @@
                     text-align: center;
                     line-height: 6rem;
                     border-radius: 50%;
+                    &.active
+                    {
+                        background-color: $img_title_color;
+                    }
+                    &.hover
+                    {
+                        background-color: $img_title_color;
+                    }
                 } 
             }
             &.footer_menu

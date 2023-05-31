@@ -11,14 +11,22 @@ export default
 
         },
 
-        props: ['menu_class', 'is_horizontal', 'category', 'menu_items']
+        props: ['menu_class', 'is_horizontal', 'category', 'menu_items'],
+
+        methods     :
+        {
+            rebound_click(index_to_rebound)
+            {
+                this.$emit("rebounded",index_to_rebound);
+            }
+        }
 
     }
 </script>
 
 <template>
 
-    <div class="menu_manager" :class="(!(is_horizontal) ? ('flex-column') : (''))" :style="(menu_class == 60) ? ('gap: 0.75rem;') : ('')">
+    <div class="menu_manager" :class="(!(is_horizontal) ? ('flex-column') : (''))" :style="((menu_class == 60) || (menu_class == 30)) ? ('gap: 0.75rem;') : ('')">
 
         <div          
          v-for="(item, index) in menu_items"
@@ -32,7 +40,9 @@ export default
             />
             <AppSpItem
              v-else
-             :csi_menu_item = "item"
+             :cs_menu_item = "item"
+             :cs_index = "index"
+             @click_on_special = "rebound_click"
             />
         </div>
     
