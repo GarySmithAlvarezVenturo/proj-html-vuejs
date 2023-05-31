@@ -100,16 +100,35 @@ export default
             }
           ],
         heading_menu:
-          [
-            {
-              text: "LATEST ALBUM",
-              active: true
-            },
-            {
-              text: "LIVE DATES",
-              active: false
-            }
-          ]
+        {
+          menu_class: 10,
+          is_horizontal: true,
+          category: 1,
+          menu_items:
+            [
+              {
+                text: "LATEST ALBUM",
+                is_active: true,
+              },
+              {
+                text: "LIVE DATES",
+                is_active: false,
+              }
+            ]
+        },
+        poster_menu:
+        {
+          menu_class: 20,
+          is_horizontal: true,
+          category: 0,
+          menu_items:
+            [
+              {
+                text: 'fa-solid fa-play',
+                is_active: true
+              }
+            ]
+        }
       }
     },
     methods:
@@ -152,7 +171,12 @@ export default
           <h2>There is an untold story behind every favorite song.</h2>
         </div>
 
-        <AppMenuMng source="heading" is_icon="false" :menu="heading_menu" />
+        <AppMenuMng
+                 :menu_class = "heading_menu.menu_class"
+                 :category = "heading_menu.category"
+                 :is_horizontal="heading_menu.is_horizontal"
+                 :menu_items = "heading_menu.menu_items" 
+                />
       </div>
     </section>
 
@@ -175,6 +199,12 @@ export default
         sounds full of ideas. These guys knew what they were doing. They're good. And they're inventive. I haven't heard
         anything this year that's as inventive. I don't really expect to."
       </p>
+      <AppMenuMng
+             :menu_class = "poster_menu.menu_class"
+             :category = "poster_menu.category"
+             :is_horizontal="poster_menu.is_horizontal"
+             :menu_items = "poster_menu.menu_items"
+            />
     </section>
 
     <section id="live_date_section">
@@ -266,6 +296,7 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
+    gap: 3rem;
     padding-bottom: 25vh;
 
     p {

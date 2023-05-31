@@ -1,13 +1,31 @@
 <script>
 import { store } from "../store";
+import AppMenuMng from "./AppMenuMng.vue"
 
 export default
     {
-        name: "AppHeader",
+    name        : "Comp_Header",
+    components  :
+    {
+        AppMenuMng
+    },
         
         data() {
             return {
                 store,
+                nav_icon:
+                {
+                    menu_class: 0,
+                    is_horizontal: true,
+                    category: 0,
+                    menu_items:
+                        [
+                            {
+                                text: 'fa-solid fa-bars',
+                                is_active: true
+                            }
+                        ]
+                }
             };
         },
         
@@ -23,9 +41,12 @@ export default
         </a>
         <!-- MENU OPEN/CLOSE -->
         <nav class="std_flex">
-            <button id="nav_menu_btn" type="button" class="fs-2" v-on:click="nav_menu()">
-                <i id="compressed_menu" class="fa-solid fa-bars"></i>
-            </button>
+            <AppMenuMng 
+            :menu_class = "nav_icon.menu_class"
+            :category = "nav_icon.category"
+            :is_horizontal="nav_icon.is_horizontal"
+            :menu_items = "nav_icon.menu_items"
+            />
         </nav>
 
     </header>
