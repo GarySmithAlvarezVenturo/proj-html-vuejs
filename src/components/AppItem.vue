@@ -1,5 +1,4 @@
 <script>
-import { withDirectives } from 'vue';
     export default
     {
         name        : "AppItem",
@@ -10,6 +9,7 @@ import { withDirectives } from 'vue';
                 social_array : ["Facebook", "Twitter", "Instagram", "YouTube"]
             }
         },
+
         methods     :
         {
             set_classes()
@@ -32,19 +32,20 @@ import { withDirectives } from 'vue';
                     // footer_menu
                     case 50:
                         classes_str = "footer_menu";
-                    // social_menu
+                        break;
                     case 60:
                         classes_str = "social_menu";
                         break;
                 }
                 return classes_str;
             },
-            set_if_active()
-            {
+
+            set_if_active() {
                 if (this.csi_menu_item.is_active)
                     return "active";
                 else
                     return "";
+            
             }
         }
     }
@@ -53,11 +54,17 @@ import { withDirectives } from 'vue';
 <template>
     <div class="single_item" :class="(set_classes())">
 
-        <button type=button v-if="(csi_category == 0)" :class="(set_if_active())">
+        <button type=button
+         v-if="(csi_category == 0)"
+         :class="(set_if_active())"
+        >
             <i :class="(csi_menu_item.text)"></i>
         </button>
 
-        <button type="button" v-else-if="(csi_category == 1)" :class="(set_if_active())">
+        <button type="button"
+         v-else-if="(csi_category == 1)"
+         :class="(set_if_active())"
+        >
             {{ csi_menu_item.text }}
         </button>
 
@@ -97,7 +104,6 @@ import { withDirectives } from 'vue';
                 padding: 3px 6px;
                 margin-bottom: 5px;
             }
-
             button
             {
                 border-radius: 3px;
@@ -174,7 +180,6 @@ import { withDirectives } from 'vue';
                     border-radius: 50%;
                 } 
             }
-           
             &.footer_menu
             {
                 a
